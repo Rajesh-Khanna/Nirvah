@@ -2,39 +2,36 @@
 <html>
 <head>
 	<title>testing</title>
+	<meta name="google-signin-client_id" content="621924091062-g6br61idc5jha26ep6loda5fjlqt653o.apps.googleusercontent.com">
 </head>
 <body>
 	Testing app
-</body>
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<a href="#" onclick="signOut();">Sign out</a>
 
-<script src="https://apis.google.com/js/api.js"></script>
+</body>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
 
 
-function start() {
-  // 2. Initialize the JavaScript client library.
-  g1 = gapi.client.init({
-    'apiKey': 'AIzaSyCdwhrZfx1i4MqFOizKLcKe6F3XErodkf0',
-    // clientId and scope are optional if auth is not required.
-    'clientId': '621924091062-g6br61idc5jha26ep6loda5fjlqt653o.apps.googleusercontent.com',
-    'scope': 'people.googleapis.com',
-  });
+// 'apiKey': 'AIzaSyCdwhrZfx1i4MqFOizKLcKe6F3XErodkf0',
 
-  g2 = g1.then(function(){
-    return gapi.client.request({
-      'path': 'https://people.googleapis.com/v1/{resourceName=contactGroups/*}',
-    })
-  });
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
 
 
-   g3 = g2.then(function(response) {
-    console.log(response.result);
-  	},function(reason) {
-    console.log('Error: ' + reason.result.error.message);
-  });
-};
-// 1. Load the JavaScript client library.
-gapi.load('client', start);
 </script>
 
 </html>
