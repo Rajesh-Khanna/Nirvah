@@ -15,11 +15,11 @@ function start() {
     'apiKey': 'AIzaSyCdwhrZfx1i4MqFOizKLcKe6F3XErodkf0',
     // clientId and scope are optional if auth is not required.
     'clientId': '621924091062-g6br61idc5jha26ep6loda5fjlqt653o.apps.googleusercontent.com',
-    'scope': 'profile',
+    'scope': 'people.googleapis.com',
   }).then(function() {
     // 3. Initialize and make the API request.
     return gapi.client.request({
-      'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
+      'path': 'https://people.googleapis.com/v1/{resourceName=contactGroups/*}',
     })
   }).then(function(response) {
     console.log(response.result);
