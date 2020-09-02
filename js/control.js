@@ -63,7 +63,7 @@ function handleSignin(isSignedIn){
   }else{
     if(path == "login.html"){
     }else{
-      
+      console.log(path)
 //       location.replace('./login.html');
     }
   }
