@@ -48,10 +48,10 @@ function initClient() {
 }
 
 function handleSignin(isSignedIn){
+  var path = document.location.pathname;
+  path = path.split('/');
+  path = path[path.length-1];
   if(isSignedIn){
-    var path = document.location.pathname;
-    path = path.split('/');
-    path = path[path.split('/').length-1]
     if(path == "login.html"){
       location.replace('./index.html');
     }else{
