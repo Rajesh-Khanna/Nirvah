@@ -64,10 +64,7 @@ function handleSignin(isSignedIn){
     if(path == "login.html"){
     }else{
       console.log(path)
-
-     setTimeout(function () {
-       location.replace('./login.html');
-      }, 5000);
+     setTimeout(location.replace('./login.html');, 1000);
       
     }
   }
