@@ -19,6 +19,10 @@ function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }
 
+function makeSafe(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 /**
  *  Initializes the API client library and sets up sign-in state
  *  listeners.
@@ -45,13 +49,16 @@ function initClient() {
 
 function handleSignin(isSignedIn){
   if(isSignedIn){
-    if(document.location.pathname == "/login.html"){
+    var path = document.location.pathname;
+    path = path.split('/');
+    path = path[path.split('/').length-1]
+    if(path == "login.html"){
       location.replace('./index.html');
     }else{
       $(document).ready(loadMain());
     }
   }else{
-    if(document.location.pathname == "/login.html"){
+    if(path == "login.html"){
     }else{
       location.replace('./login.html');
     }
@@ -78,11 +85,11 @@ function openProjectPage(name){
 
 function createNew_project(){
   var id = '#newProjctName';
-  if(/\S/.test($(id).val())){
+  if(/\S/.test($(id).val()) && /^[a-z0-9]+$/i.test($(id).val())){
     Project.createProject($(id).val());
     $(id).val('');
   }else{
-    alert('Project Name cannot be empty');
+    alert('Project Name cannot be empty and should have only alphanumeric characters');
   }
 }
 
@@ -92,11 +99,11 @@ function DisplayUserInfo(name,image,email){
 }
 
 function updateInfo(){
-  var codeLink = $('#edit_project_code').val();
-  var downloadLink = $('#edit_project_download').val();
-  var demoLink = $('#edit_project_demo').val();
-  var descriptionLink = $('#edit_project_description').val();
-  Project.updateProject(codeLink,downloadLink,demoLink,descriptionLink);  
+  var codeLink = makeSafe($('#edit_project_code').val());
+  var downloadLink = makeSafe($('#edit_project_download').val());
+  var demoLink = makeSafe($('#edit_project_demo').val());
+  var description = makeSafe($('#edit_project_description').val());
+  Project.updateProject(codeLink,downloadLink,demoLink,description);  
 }
 
 function loadMain(){
@@ -117,7 +124,7 @@ function loadMain(){
 
 function addNewTask(){
   if(/\S/.test($('#task-input').val())){
-    Task.addTask($('#task-input').val());
+    Task.addTask(makeSafe($('#task-input').val()));
     $('#task-input').val('');
   }else{
     alert('task cannot be empty');
@@ -146,7 +153,7 @@ function displayRemoveTask(id){
 
 function addNewBug(){
   if(/\S/.test($('#bug-input').val())){
-    Bug.addBug($('#bug-input').val());
+    Bug.addBug(makeSafe($('#bug-input').val()));
     $('#bug-input').val('');
   }else{
     alert('Bug statement cannot be empty');
@@ -175,7 +182,7 @@ function displayRemoveBug(id){
 
 function addNewIssue(){
   if(/\S/.test($('#issue-input').val())){
-    Issue.addIssue($('#issue-input').val());
+    Issue.addIssue(makeSafe($('#issue-input').val()));
     $('#issue-input').val('');
   }else{
     alert('Issue cannot be empty');
@@ -205,7 +212,7 @@ function displayRemoveIssue(id){
 
 function addQuestion(){
   if(/\S/.test($('#question-input').val())){
-    QnA.addQuestion($('#question-input').val());
+    QnA.addQuestion(makeSafe($('#question-input').val()));
     $('#question-input').val('');
   }else{
     alert('Issue cannot be empty');
@@ -250,8 +257,8 @@ function showQnAEditForm(id){
 
 function QnAupdateChanges(id){
   $('#qna_edit_form_'+id).hide();
-  var q = $('#qna_edit_question_'+id).val();
-  var ans = $('#qna_edit_answer_'+id).val();
+  var q = makeSafe($('#qna_edit_question_'+id).val());
+  var ans = makeSafe($('#qna_edit_answer_'+id).val());
   console.log(q);
   console.log(ans);
   console.log(id);
