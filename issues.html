@@ -1,0 +1,38 @@
+<div class="col">
+  <h3 class="h3 mb-0 text-gray-800">Issues</h3>
+  <div id="issues_list">
+
+      <div class="row">
+          <div class="col-lg">
+              <textarea class="form-control" id="issue-input" rows="3"></textarea>
+          </div>
+          <div class="col-lg">
+              <button class="btn btn-primary btn-sm" onclick="addNewIssue()">
+                  <i class="fa fa-plus"> </i> Add issue
+              </button>        
+          </div>
+      </div>
+      <br>
+      <p type="button" id="pop_over_help" class="text-xs popover-toggle" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>: You can drag blocks over onces solved, the changes will be saved
+      </p>
+      <div class="row">
+          <div class="col-lg p-2"><div class = "text-light issue_title rounded  bg-warning p-2">Current</div></div>
+          <div class="col-lg p-2"><div class = "text-light issue_title rounded  bg-success p-2">Resolved</div></div>
+      </div>
+      <div class="row">
+          <div class="col-lg p-2">
+              <ul id="current_issue_table" class="list-group connectedSortable_issues p-2 bg-gray-400">
+              </ul>            
+          </div>
+          <div class="col-lg p-2">
+              <ul id="resolved_issue_table" class="list-group connectedSortable_issues p-2 bg-gray-400">
+                </ul>            
+          </div>
+      </div>
+
+  </div>
+  
+</div>
+
+

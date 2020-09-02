@@ -1,0 +1,12 @@
+.slide-c{
+    display: none;
+}
+
+.connectedSortable{
+    
+}
+
+.projectMenuItem:hover{
+    cursor: pointer;
+    background: #bae1ff;
+}

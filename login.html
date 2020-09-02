@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Login</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="theme/gh/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="theme/gh/css/sb-admin-2.min.css" rel="stylesheet">
+
+  <style>
+    body {
+	  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	  background-size: 400% 400%;
+	  animation: gradient 15s ease infinite;
+  }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+  </style>
+
+</head>
+
+<body class="">
+
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Welcome To Nirvah!</h1>
+                  </div>
+                  <div>
+                    <p>
+                      This is a project managment software, that helps you organize your thoughts and ideas for a project. 
+                    </p>
+                    <p>
+                      <ul>
+                        <li>To Do List</li>
+                        <li>Bug trackers</li>
+                        <li>Doubts and research log trackers</li>
+                      </ul>
+                    </p>
+                    <p>
+                      powered by google drive
+                    </p>
+                    <p>
+                      <a href=""> <i class="fab fa-github"></i> source code </a>
+                    </p>
+                  </div>
+                  <!-- <form class="user">
+                    <div class="form-group">
+                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                      </div>
+                    </div>
+                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                      Login
+                    </a>
+                    <hr>
+                  </form> -->
+                  <hr>
+                  <button class="btn btn-google btn-user btn-block" id="authorize_button">
+                    <i class="fab fa-google fa-fw"></i> Login with Google
+                  </button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="theme/gh/vendor/jquery/jquery.min.js"></script>
+  <script src="theme/gh/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="theme/gh/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="theme/gh/js/sb-admin-2.min.js"></script>
+
+  <script src="js/control.js"></script>
+  <script async defer src="https://apis.google.com/js/api.js"
+    onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+  </script>
+  
+
+</body>
+
+</html>

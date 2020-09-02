@@ -1,0 +1,45 @@
+// View
+[Render| +html(p_id:string, text: string); | +append(p_id: string, item: DOM_object); update(item_id,DOM_object);
+remove(item_id)]
+
+// Model block
+[Model| +ID:string | saveItem(item: string); updateItem(ID,item); removeItem(ID)]
+
+// control Block
+[User]++1-0..*>[Project]
+[Project]++1-0..*>[Note]
+[Project]++1-0..*>[QnA]
+[Project]++1-0..*>[Documentation]
+
+[Note]^[Task]
+
+[Note]^[Bug]
+
+[Note]^[Issue]
+
+[Model]^[Project]
+
+[Model]^[Note]
+
+[Model]^[QnA]
+
+[Model]^[Documentation]
+
+[Render]^[Project]
+[Render]^[Note]
+[Render]^[QnA]
+[Render]^[Documentation]
+
+
+// Add more detail
+[User|#ID: string;#name: | +setHash(ID);+addProject(name: string);+removeProject()]
+
+[Project| #Project_ID: string;#name: string;date: string;#progress:int; +codeLink: string; +downloadLink: string; +demoLink: string| +getHash():string;+getProgress(); +getDate():string; +addNote(note); +getters(); +seters() ]
+
+[Note|#ID: int; #statement: string; #date: string; #type: string; #status: string| +setStatement(statement); getStatement(): string; setStatus(status); getStatus():string]
+
+[Task|#type: string]
+
+[QnA|#ID: int; #question: string; #answer: string | setQuestion(question: string); updateAnswer(answer: string); getQuestion(); getAnswer() ]
+
+[Documentation| #ID: int; name: string; path: string | loadFile(name: string path: string)]
