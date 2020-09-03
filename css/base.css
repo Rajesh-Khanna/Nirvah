@@ -10,3 +10,7 @@
     cursor: pointer;
     background: #bae1ff;
 }
+
+.wrap_text{
+    white-space: pre-wrap;  /* <-- THIS PRESERVES THE LINE BREAKS */
+}

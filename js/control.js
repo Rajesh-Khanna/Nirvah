@@ -147,7 +147,7 @@ function deleteTask(id){
 function displayAppendTask(group,statement,id){
   console.log(id);
   $('#'+group+'_table').append('<li id="task_'+id+'" class="list-group-item ui-state-default task_el btn btn-icon-split"> \
-    <span class="text mr-auto">'+statement+'</span>      \
+    <span class="text mr-auto wrap_text">'+statement+'</span>      \
     <span class="icon float-right pt-auto pb-auto bg-danger text-light" onclick = deleteTask('+id+')> \
     <i class="fa fa-times"></i> \
     </span> \
@@ -176,7 +176,7 @@ function deleteBug(id){
 function displayAppendBug(group,statement,id){
   console.log(id);
   $('#'+group+'_table').append('<li id="bug_'+id+'" class="list-group-item ui-state-default bug_el btn btn-icon-split"> \
-    <span class="text mr-auto">'+statement+'</span>      \
+    <span class="text mr-auto wrap_text">'+statement+'</span>      \
     <span class="icon float-right pt-auto pb-auto bg-danger text-light" onclick = deleteBug('+id+')> \
     <i class="fa fa-times"></i> \
     </span> \
@@ -205,7 +205,7 @@ function deleteIssue(id){
 function displayAppendIssue(group,statement,id){
   console.log(id);
   $('#'+group+'_table').append('<li id="issue_'+id+'" class="list-group-item ui-state-default issue_el btn btn-icon-split"> \
-    <span class="text mr-auto">'+statement+'</span>      \
+    <span class="text mr-auto wrap_text">'+statement+'</span>      \
     <span class="icon float-right pt-auto pb-auto bg-danger text-light" onclick = deleteIssue('+id+')> \
     <i class="fa fa-times"></i> \
     </span> \
@@ -230,10 +230,10 @@ function displayAppendQnA(q,ans,solved,id){
   if(solved == 'solved'){
     var qna_block =     '<li class="list-group-item qna_el p-0"><div class="card shadow qna_id_'+id+'"> \
     <a href="#qna_collapseCard_'+id+'" class="d-block card-header bg-success p-0" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="qna_collapseCard_'+id+'"> \
-      <h6 class="m-0 font-weight-bold text-light"><button class="btn btn-primary" id = "qna_edit_'+id+'"  onclick="showQnAEditForm('+id+')" >edit</button><span class="pl-1">'+q+'</span></h6> \
+      <h6 class="m-0 font-weight-bold text-light"><button class="btn btn-primary" id = "qna_edit_'+id+'"  onclick="showQnAEditForm('+id+')" >edit</button><span class="pl-1 wrap_text">'+q+'</span></h6> \
     </a> \
     <!-- Card Content - Collapse --> \
-    <div class="collapse" id="qna_collapseCard_'+id+'"> <div class="card-body"> <span class="pl-1" id="qna_answer_'+id+'">'+ans+'</span> \
+    <div class="collapse" id="qna_collapseCard_'+id+'"> <div class="card-body"> <span class="pl-1 wrap_text" id="qna_answer_'+id+'">'+ans+'</span> \
     <div id="qna_edit_form_'+id+'"> \
     <input id = "qna_edit_question_'+id+'" value="'+q+'" > <br>\
     <textarea id="qna_edit_answer_'+id+'">'+ans+'</textarea><br> \
@@ -244,10 +244,10 @@ function displayAppendQnA(q,ans,solved,id){
   }else{
     var qna_block =     '<li class="list-group-item qna_el p-0"><div class="card shadow qna_id_'+id+'"> \
     <a href="#qna_collapseCard_'+id+'" class="d-block card-header bg-danger p-0" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="qna_collapseCard_'+id+'"> \
-      <h6 class="m-0 font-weight-bold text-light"><button class="btn btn-primary" id = "qna_edit_'+id+'" onclick="showQnAEditForm('+id+')" >edit</button><span class="pl-1">'+q+'</span></h6> \
+      <h6 class="m-0 font-weight-bold text-light"><button class="btn btn-primary" id = "qna_edit_'+id+'" onclick="showQnAEditForm('+id+')" >edit</button><span class="pl-1 wrap_text">'+q+'</span></h6> \
     </a> \
     <!-- Card Content - Collapse --> \
-    <div class="collapse" id="qna_collapseCard_'+id+'"> <div class="card-body"> <span class="pl-1" id="qna_answer_'+id+'">'+ans+'</span> \
+    <div class="collapse" id="qna_collapseCard_'+id+'"> <div class="card-body"> <span class="pl-1 wrap_text" id="qna_answer_'+id+'">'+ans+'</span> \
     <div id="qna_edit_form_'+id+'"> \
     <input id = "qna_edit_question_'+id+'" value="'+q+'" > <br>\
     <textarea id="qna_edit_answer_'+id+'">'+ans+'</textarea><br> \
