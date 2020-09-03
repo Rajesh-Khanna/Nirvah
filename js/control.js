@@ -53,13 +53,17 @@ function handleSignin(isSignedIn){
   path = path[path.length-1];
   if(isSignedIn){
     if(path == "login.html"){
+      console.log(1);
       location.replace('./index.html');
     }else{
+      console.log(2);
       $(document).ready(loadMain());
     }
   }else{
     if(path == "login.html"){
+      console.log(3);
     }else{
+      console.log(4);
       location.replace('./login.html');
     }
   }
