@@ -49,8 +49,11 @@ function initClient() {
 
 function handleSignin(isSignedIn){
   var path = document.location.pathname;
+  console.log(path);
   path = path.split('/');
+  console.log(path);
   path = path[path.length-1];
+  console.log(path);
   if(isSignedIn){
     if(path == "login.html"){
       console.log(1);
@@ -63,8 +66,8 @@ function handleSignin(isSignedIn){
     if(path == "login.html"){
       console.log(3);
     }else{
-      console.log(4);
-      location.replace('./login.html');
+      console.log(path)
+     location.replace('./login.html');
     }
   }
 }
